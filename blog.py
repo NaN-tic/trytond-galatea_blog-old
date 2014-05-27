@@ -1,0 +1,107 @@
+#This file is part galatea_blog module for Tryton.
+#The COPYRIGHT file at the top level of this repository contains 
+#the full copyright notices and license terms.
+from trytond.model import ModelSQL, ModelView, fields
+from trytond.pool import Pool
+from trytond.transaction import Transaction
+from trytond.pyson import Eval, Not, Equal, In
+from .tools import slugify
+
+__all__ = ['Post', 'Comment']
+
+
+class Post(ModelSQL, ModelView):
+    "Blog Post"
+    __name__ = 'galatea.blog.post'
+    name = fields.Char('Title', translate=True,
+        required=True, on_change=['name', 'slug'])
+    slug = fields.Char('slug', required=True,
+        help='Cannonical uri.')
+    description = fields.Text('Description', required=True, translate=True,
+        help='You could write wiki markup to create html content. Formats text following '
+        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+    metadescription = fields.Char('Meta Description', translate=True, 
+        help='Almost all search engines recommend it to be shorter ' \
+        'than 155 characters of plain text')
+    metakeywords = fields.Char('Meta Keywords',  translate=True,
+        help='Separated by comma')
+    metatitle = fields.Char('Meta Title',  translate=True)
+    template = fields.Char('Template', required=True)
+    active = fields.Boolean('Active',
+        help='Dissable to not show content post.')
+    galatea_website = fields.Many2One('galatea.website', 'Website',
+        domain=[('active', '=', True)], required=True)
+    create_date = fields.DateTime('Create Date', readonly=True)
+    write_date = fields.DateTime('Write Date', readonly=True)
+    create_uid = fields.Many2One('res.user', 'User Create', readonly=True)
+    write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
+    @staticmethod
+    def default_template():
+        return 'blog-post.html'
+
+    @classmethod
+    def default_galatea_website(cls):
+        Website = Pool().get('galatea.website')
+        websites = Website.search([('active', '=', True)])
+        if len(websites) == 1:
+            return websites[0].id
+
+    @classmethod
+    def __setup__(cls):
+        super(Post, cls).__setup__()
+        cls._order.insert(0, ('create_date', 'DESC'))
+        cls._order.insert(1, ('id', 'DESC'))
+        cls._error_messages.update({
+            'delete_posts': ('You can not delete '
+                'posts because you will get error 404 NOT Found. '
+                'Dissable active field.'),
+            })
+
+    def on_change_name(self):
+        res = {}
+        if self.name and not self.slug:
+            res['slug'] = slugify(self.name)
+        return res
+
+    @classmethod
+    def copy(cls, posts, default=None):
+        new_posts = []
+        for post in posts:
+            default['slug'] = '%s-copy' % post.slug
+            new_post, = super(Post, cls).copy([post], default=default)
+            new_posts.append(new_post)
+        return new_posts
+
+    @classmethod
+    def delete(cls, posts):
+        cls.raise_user_error('delete_posts')
+
+
+class Comment(ModelSQL, ModelView):
+    "Blog Comment Post"
+    __name__ = 'galatea.blog.comment'
+    post = fields.Many2One('galatea.blog.post', 'Post', required=True)
+    user = fields.Many2One('galatea.user', 'User', required=True)
+    description = fields.Text('Description', required=True,
+        help='You could write wiki markup to create html content. Formats text following '
+        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+    active = fields.Boolean('Active',
+        help='Dissable to not show content post.')
+    create_date = fields.DateTime('Create Date', readonly=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
+    @classmethod
+    def default_user(cls):
+        Website = Pool().get('galatea.website')
+        websites = Website.search([('active', '=', True)])
+        if len(websites) == 1:
+            if websites[0].blog_anonymous_user:
+                return websites[0].blog_anonymous_user.id

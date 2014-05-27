@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tryton>
+    <data>
+        <record model="res.group" id="group_galatea_blog">
+            <field name="name">Galatea Blog</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_galatea_blog">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_galatea_blog"/>
+        </record>
+
+        <menuitem id="menu_galatea_blog" parent="galatea.menu_galatea" name="Blog"/>
+        <record model="ir.ui.menu-res.group" id="menu_group_galatea_blog">
+          <field name="menu" ref="menu_galatea_blog"/>
+          <field name="group" ref="group_galatea_blog"/>
+        </record>
+
+        <!-- galatea.blog.post -->
+        <record model="ir.ui.view" id="blog_post_view_form">
+            <field name="model">galatea.blog.post</field>
+            <field name="type">form</field>
+            <field name="name">post_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="blog_post_view_tree">
+            <field name="model">galatea.blog.post</field>
+            <field name="type">tree</field>
+            <field name="name">post_tree</field>
+        </record>
+
+        <!-- Actions / Menu -->
+        <record model="ir.action.act_window" id="act_blog_post_comment_form2">
+            <field name="name">Comments</field>
+            <field name="res_model">galatea.blog.comment</field>
+            <field name="domain">[("post", "=", Eval('id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_blog_post_comment_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">galatea.blog.post,-1</field>
+            <field name="action" ref="act_blog_post_comment_form2"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_blog_post_form">
+            <field name="name">Posts</field>
+            <field name="res_model">galatea.blog.post</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_blog_post_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="blog_post_view_tree"/>
+            <field name="act_window" ref="act_blog_post_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_blog_post_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="blog_post_view_form"/>
+            <field name="act_window" ref="act_blog_post_form"/>
+        </record>
+        <menuitem parent="menu_galatea_blog" action="act_blog_post_form"
+            id="menu_blog_post_form"/>
+
+        <!-- galatea.blog.comment -->
+        <record model="ir.ui.view" id="blog_comment_view_form">
+            <field name="model">galatea.blog.comment</field>
+            <field name="type">form</field>
+            <field name="name">comment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="blog_comment_view_tree">
+            <field name="model">galatea.blog.comment</field>
+            <field name="type">tree</field>
+            <field name="name">comment_tree</field>
+        </record>
+
+        <!-- Actions / Menu -->
+        <record model="ir.action.act_window" id="act_blog_comment_form">
+            <field name="name">Comments</field>
+            <field name="res_model">galatea.blog.comment</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_blog_comment_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="blog_comment_view_tree"/>
+            <field name="act_window" ref="act_blog_comment_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_blog_comment_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="blog_comment_view_form"/>
+            <field name="act_window" ref="act_blog_comment_form"/>
+        </record>
+        <menuitem parent="menu_galatea_blog" action="act_blog_comment_form"
+            id="menu_blog_comment_form"/>
+
+        <!-- Access -->
+        <record model="ir.model.access" id="access_galatea_blog_post">
+            <field name="model" search="[('model', '=', 'galatea.blog.post')]"/>
+            <field name="group" ref="group_galatea_blog"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_galatea_blog_comment">
+            <field name="model" search="[('model', '=', 'galatea.blog.comment')]"/>
+            <field name="group" ref="group_galatea_blog"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>
