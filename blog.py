@@ -4,7 +4,6 @@
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
 from trytond.transaction import Transaction
-from trytond.pyson import Eval, Not, Equal, In
 from .tools import slugify
 
 __all__ = ['Post', 'Comment']
