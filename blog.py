@@ -15,8 +15,9 @@ class Post(ModelSQL, ModelView):
     __name__ = 'galatea.blog.post'
     name = fields.Char('Title', translate=True,
         required=True, on_change=['name', 'slug'])
-    slug = fields.Char('slug', required=True,
+    slug = fields.Char('slug', required=True, translate=True,
         help='Cannonical uri.')
+    slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_slug_langs')
     description = fields.Text('Description', required=True, translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
@@ -80,6 +81,24 @@ class Post(ModelSQL, ModelView):
     @classmethod
     def delete(cls, posts):
         cls.raise_user_error('delete_posts')
+
+    def get_slug_langs(self, name):
+        '''Return dict slugs by all languaes actives'''
+        pool = Pool()
+        Lang = pool.get('ir.lang')
+        Post = pool.get('galatea.blog.post')
+
+        post_id = self.id
+        langs = Lang.search([
+            ('active', '=', True),
+            ('translatable', '=', True),
+            ])
+
+        slugs = {}
+        for lang in langs:
+            with Transaction().set_context(language=lang.code):
+                post, = Post.read([post_id], ['slug'])
+                slugs[lang.code] = post['slug']
 
 
 class Comment(ModelSQL, ModelView):
