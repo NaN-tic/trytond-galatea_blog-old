@@ -4,6 +4,7 @@
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
 from trytond.transaction import Transaction
+from trytond.cache import Cache
 from .tools import slugify
 
 __all__ = ['Post', 'Comment']
@@ -35,6 +36,7 @@ class Post(ModelSQL, ModelView):
     write_date = fields.DateTime('Write Date', readonly=True)
     create_uid = fields.Many2One('res.user', 'User Create', readonly=True)
     write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
+    _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
 
     @staticmethod
     def default_active():
