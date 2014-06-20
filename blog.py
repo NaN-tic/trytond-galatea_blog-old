@@ -32,8 +32,10 @@ class Post(ModelSQL, ModelView):
         help='Dissable to not show content post.')
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
-    create_date = fields.DateTime('Create Date', readonly=True)
-    write_date = fields.DateTime('Write Date', readonly=True)
+    blog_create_date = fields.Function(fields.Char('Create Date'),
+        'get_blog_create_date')
+    blog_write_date = fields.Function(fields.Char('Write Date'),
+        'get_blog_write_date')
     create_uid = fields.Many2One('res.user', 'User Create', readonly=True)
     write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
     _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
@@ -101,6 +103,24 @@ class Post(ModelSQL, ModelView):
                 post, = Post.read([post_id], ['slug'])
                 slugs[lang.code] = post['slug']
 
+    @classmethod
+    def get_blog_create_date(cls, records, name):
+        """Returns create date of current blog"""
+        res = {}
+        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
+        for record in records:
+            res[record.id] = record.create_date.strftime(DATE_FORMAT) or ''
+        return res
+
+    @classmethod
+    def get_blog_write_date(cls, records, name):
+        """Returns write date of current blog"""
+        res = {}
+        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
+        for record in records:
+            res[record.id] = record.write_date and record.write_date.strftime(DATE_FORMAT) or ''
+        return res
+
 
 class Comment(ModelSQL, ModelView):
     "Blog Comment Post"
@@ -112,7 +132,8 @@ class Comment(ModelSQL, ModelView):
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
     active = fields.Boolean('Active',
         help='Dissable to not show content post.')
-    create_date = fields.DateTime('Create Date', readonly=True)
+    comment_create_date = fields.Function(fields.Char('Create Date'),
+        'get_comment_create_date')
 
     @staticmethod
     def default_active():
@@ -125,3 +146,12 @@ class Comment(ModelSQL, ModelView):
         if len(websites) == 1:
             if websites[0].blog_anonymous_user:
                 return websites[0].blog_anonymous_user.id
+
+    @classmethod
+    def get_comment_create_date(cls, records, name):
+        """Returns create date of current blog"""
+        res = {}
+        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
+        for record in records:
+            res[record.id] = record.create_date.strftime(DATE_FORMAT) or ''
+        return res
