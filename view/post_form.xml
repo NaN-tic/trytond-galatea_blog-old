@@ -24,15 +24,5 @@ this repository contains the full copyright notices and license terms. -->
             <label name="metatitle"/>
             <field name="metatitle"/><newline/>
         </page>
-        <page string="Info" id="info">
-            <label name="create_date"/>
-            <field name="create_date"/>
-            <label name="write_date"/>
-            <field name="write_date"/>
-            <label name="create_uid"/>
-            <field name="create_uid"/>
-            <label name="write_uid"/>
-            <field name="write_uid"/>
-        </page>
     </notebook>
 </form>

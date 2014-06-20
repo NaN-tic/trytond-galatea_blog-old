@@ -3,7 +3,6 @@
 this repository contains the full copyright notices and license terms. -->
 <tree string="Comments">
     <field name="user"/>
-    <field name="create_date"/>
     <field name="active"/>
     <field name="post"/>
 </tree>
