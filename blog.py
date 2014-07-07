@@ -32,10 +32,8 @@ class Post(ModelSQL, ModelView):
         help='Dissable to not show content post.')
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
-    blog_create_date = fields.Function(fields.Char('Create Date'),
-        'get_blog_create_date')
-    blog_write_date = fields.Function(fields.Char('Write Date'),
-        'get_blog_write_date')
+    blog_create_date = fields.Date('Create Date', readonly=True)
+    blog_write_date = fields.Date('Write Date', readonly=True)
     create_uid = fields.Many2One('res.user', 'User Create', readonly=True)
     write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
     _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
@@ -73,10 +71,35 @@ class Post(ModelSQL, ModelView):
         return res
 
     @classmethod
+    def create(cls, vlist):
+        Date = Pool().get('ir.date')
+
+        today = Date.today()
+        vlist = [x.copy() for x in vlist]
+        for vals in vlist:
+            vals['blog_create_date'] = today
+        return super(Post, cls).create(vlist)
+
+    @classmethod
+    def write(cls, *args):
+        Date = Pool().get('ir.date')
+
+        today = Date.today()
+        actions = iter(args)
+        args = []
+        for blogs, values in zip(actions, actions):
+            values = values.copy()
+            values['blog_write_date'] = today
+            args.extend((blogs, values))
+        return super(Post, cls).write(*args)
+
+    @classmethod
     def copy(cls, posts, default=None):
         new_posts = []
         for post in posts:
             default['slug'] = '%s-copy' % post.slug
+            default['blog_create_date'] = None
+            default['blog_write_date'] = None
             new_post, = super(Post, cls).copy([post], default=default)
             new_posts.append(new_post)
         return new_posts
@@ -102,24 +125,6 @@ class Post(ModelSQL, ModelView):
             with Transaction().set_context(language=lang.code):
                 post, = Post.read([post_id], ['slug'])
                 slugs[lang.code] = post['slug']
-
-    @classmethod
-    def get_blog_create_date(cls, records, name):
-        """Returns create date of current blog"""
-        res = {}
-        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
-        for record in records:
-            res[record.id] = record.create_date.strftime(DATE_FORMAT) or ''
-        return res
-
-    @classmethod
-    def get_blog_write_date(cls, records, name):
-        """Returns write date of current blog"""
-        res = {}
-        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
-        for record in records:
-            res[record.id] = record.write_date and record.write_date.strftime(DATE_FORMAT) or ''
-        return res
 
 
 class Comment(ModelSQL, ModelView):
