@@ -3,7 +3,7 @@
 this repository contains the full copyright notices and license terms. -->
 <tree string="Posts">
     <field name="name"/>
-    <field name="blog_create_date"/>
+    <field name="post_create_date"/>
     <field name="create_uid"/>
     <field name="active"/>
     <field name="galatea_website"/>

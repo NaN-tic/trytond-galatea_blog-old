@@ -6,6 +6,7 @@ from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from .tools import slugify
+from datetime import datetime
 
 __all__ = ['Post', 'Comment']
 
@@ -32,8 +33,8 @@ class Post(ModelSQL, ModelView):
         help='Dissable to not show content post.')
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
-    blog_create_date = fields.Date('Create Date', readonly=True)
-    blog_write_date = fields.Date('Write Date', readonly=True)
+    post_create_date = fields.DateTime('Create Date', readonly=True)
+    post_write_date = fields.DateTime('Write Date', readonly=True)
     create_uid = fields.Many2One('res.user', 'User Create', readonly=True)
     write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
     _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
@@ -72,24 +73,21 @@ class Post(ModelSQL, ModelView):
 
     @classmethod
     def create(cls, vlist):
-        Date = Pool().get('ir.date')
-
-        today = Date.today()
+        now = datetime.now()
         vlist = [x.copy() for x in vlist]
         for vals in vlist:
-            vals['blog_create_date'] = today
+            vals['post_create_date'] = now
         return super(Post, cls).create(vlist)
 
     @classmethod
     def write(cls, *args):
-        Date = Pool().get('ir.date')
+        now = datetime.now()
 
-        today = Date.today()
         actions = iter(args)
         args = []
         for blogs, values in zip(actions, actions):
             values = values.copy()
-            values['blog_write_date'] = today
+            values['post_write_date'] = now
             args.extend((blogs, values))
         return super(Post, cls).write(*args)
 
