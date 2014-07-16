@@ -2,3 +2,259 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "error:galatea.blog.post:"
+msgid ""
+"You can not delete posts because you will get error 404 NOT Found. Dissable "
+"active field."
+msgstr ""
+"No puede eliminar este post para evitar el error 404 NOT Fount. Desactivalo."
+
+msgctxt "field:galatea.blog.comment,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:galatea.blog.comment,comment_create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.comment,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.comment,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:galatea.blog.comment,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:galatea.blog.comment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:galatea.blog.comment,post:"
+msgid "Post"
+msgstr "Post"
+
+msgctxt "field:galatea.blog.comment,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:galatea.blog.comment,user:"
+msgid "User"
+msgstr "Usuario"
+
+msgctxt "field:galatea.blog.comment,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:galatea.blog.comment,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:galatea.blog.post,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:galatea.blog.post,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.post,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:galatea.blog.post,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:galatea.blog.post,galatea_website:"
+msgid "Website"
+msgstr "Sitio Web"
+
+msgctxt "field:galatea.blog.post,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:galatea.blog.post,metadescription:"
+msgid "Meta Description"
+msgstr "Meta Description"
+
+msgctxt "field:galatea.blog.post,metakeywords:"
+msgid "Meta Keywords"
+msgstr "Meta Keywords"
+
+msgctxt "field:galatea.blog.post,metatitle:"
+msgid "Meta Title"
+msgstr "Meta Title"
+
+msgctxt "field:galatea.blog.post,name:"
+msgid "Title"
+msgstr "Título"
+
+msgctxt "field:galatea.blog.post,post_create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:galatea.blog.post,post_write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:galatea.blog.post,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:galatea.blog.post,slug:"
+msgid "slug"
+msgstr "slug"
+
+msgctxt "field:galatea.blog.post,slug_langs:"
+msgid "Slug Langs"
+msgstr "Slug idiomas"
+
+msgctxt "field:galatea.blog.post,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:galatea.blog.post,uri:"
+msgid "Uri"
+msgstr "Uri"
+
+msgctxt "field:galatea.blog.post,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:galatea.blog.post,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:galatea.website,blog_anonymous:"
+msgid "Blog anonymous"
+msgstr "Blog anónimo"
+
+msgctxt "field:galatea.website,blog_anonymous_user:"
+msgid "Anonymous User"
+msgstr "Usuario anónimo"
+
+msgctxt "field:galatea.website,blog_comment:"
+msgid "Blog comments"
+msgstr "Comentarios blog"
+
+msgctxt "help:galatea.blog.comment,active:"
+msgid "Dissable to not show content post."
+msgstr "Desactivar para no mostrar el contenido del post."
+
+msgctxt "help:galatea.blog.comment,description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
+msgstr ""
+"Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
+" las etiquetas puede consultar a MediaWiki "
+"(http://meta.wikimedia.org/wiki/Help:Editing)."
+
+msgctxt "help:galatea.blog.post,active:"
+msgid "Dissable to not show content post."
+msgstr "Desactivar para no mostrar el contenido del post."
+
+msgctxt "help:galatea.blog.post,description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
+msgstr ""
+"Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
+" las etiquetas puede consultar a MediaWiki "
+"(http://meta.wikimedia.org/wiki/Help:Editing)."
+
+msgctxt "help:galatea.blog.post,metadescription:"
+msgid ""
+"Almost all search engines recommend it to be shorter than 155 characters of "
+"plain text"
+msgstr ""
+"La mayoría de los motores de búsqueda recomiendan un texto plano de no más "
+"de 155 caracteres"
+
+msgctxt "help:galatea.blog.post,metakeywords:"
+msgid "Separated by comma"
+msgstr "Separado con la coma"
+
+msgctxt "help:galatea.blog.post,slug:"
+msgid "Cannonical uri."
+msgstr "Cannonical uri."
+
+msgctxt "help:galatea.website,blog_anonymous:"
+msgid "Active blog anonymous comments."
+msgstr "Activar comentarios en el blog para usuarios anónimos."
+
+msgctxt "help:galatea.website,blog_comment:"
+msgid "Active blog comments."
+msgstr "Activar comentarios en el blog ."
+
+msgctxt "model:galatea.blog.comment,name:"
+msgid "Blog Comment Post"
+msgstr "Comentario post blog"
+
+msgctxt "model:galatea.blog.post,name:"
+msgid "Blog Post"
+msgstr "Post blog"
+
+msgctxt "model:ir.action,name:act_blog_comment_form"
+msgid "Comments"
+msgstr "Comentarios"
+
+msgctxt "model:ir.action,name:act_blog_post_comment_form2"
+msgid "Comments"
+msgstr "Comentarios"
+
+msgctxt "model:ir.action,name:act_blog_post_form"
+msgid "Posts"
+msgstr "Posts"
+
+msgctxt "model:ir.ui.menu,name:menu_blog_comment_form"
+msgid "Comments"
+msgstr "Comentarios"
+
+msgctxt "model:ir.ui.menu,name:menu_blog_post_form"
+msgid "Posts"
+msgstr "Posts"
+
+msgctxt "model:ir.ui.menu,name:menu_galatea_blog"
+msgid "Blog"
+msgstr "Blog"
+
+msgctxt "model:res.group,name:group_galatea_blog"
+msgid "Galatea Blog"
+msgstr "Galatea Blog"
+
+msgctxt "view:galatea.blog.comment:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "view:galatea.blog.comment:"
+msgid "Comments"
+msgstr "Comentarios"
+
+msgctxt "view:galatea.blog.comment:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "view:galatea.blog.post:"
+msgid "Descriptions"
+msgstr "Descripciones"
+
+msgctxt "view:galatea.blog.post:"
+msgid "Info"
+msgstr "Info"
+
+msgctxt "view:galatea.blog.post:"
+msgid "Post"
+msgstr "Post"
+
+msgctxt "view:galatea.blog.post:"
+msgid "Posts"
+msgstr "Posts"
+
+msgctxt "view:galatea.blog.post:"
+msgid "SEO"
+msgstr "SEO"
