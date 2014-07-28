@@ -57,6 +57,14 @@ msgctxt "field:galatea.blog.post,active:"
 msgid "Active"
 msgstr "Activo"
 
+msgctxt "field:galatea.blog.post,attachments:"
+msgid "Attachments"
+msgstr "Adjuntos"
+
+msgctxt "field:galatea.blog.post,comment:"
+msgid "Comment"
+msgstr "Comentario"
+
 msgctxt "field:galatea.blog.post,create_date:"
 msgid "Create Date"
 msgstr "Fecha creación"
@@ -73,9 +81,17 @@ msgctxt "field:galatea.blog.post,galatea_website:"
 msgid "Website"
 msgstr "Sitio Web"
 
+msgctxt "field:galatea.blog.post,gallery:"
+msgid "Gallery"
+msgstr "Galeria"
+
 msgctxt "field:galatea.blog.post,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:galatea.blog.post,long_description:"
+msgid "Long Description"
+msgstr "Descripción larga"
 
 msgctxt "field:galatea.blog.post,metadescription:"
 msgid "Meta Description"
@@ -158,7 +174,24 @@ msgctxt "help:galatea.blog.post,active:"
 msgid "Dissable to not show content post."
 msgstr "Desactivar para no mostrar el contenido del post."
 
+msgctxt "help:galatea.blog.post,comment:"
+msgid "Active comments."
+msgstr "Activar comentarios."
+
 msgctxt "help:galatea.blog.post,description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
+msgstr ""
+"Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
+" las etiquetas puede consultar a MediaWiki "
+"(http://meta.wikimedia.org/wiki/Help:Editing)."
+
+msgctxt "help:galatea.blog.post,gallery:"
+msgid "Active gallery attachments."
+msgstr "Activar galeria."
+
+msgctxt "help:galatea.blog.post,long_description:"
 msgid ""
 "You could write wiki markup to create html content. Formats text following "
 "the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
@@ -240,8 +273,16 @@ msgid "Description"
 msgstr "Descripción"
 
 msgctxt "view:galatea.blog.post:"
+msgid "Attachments"
+msgstr "Adjuntos"
+
+msgctxt "view:galatea.blog.post:"
 msgid "Descriptions"
 msgstr "Descripciones"
+
+msgctxt "view:galatea.blog.post:"
+msgid "Extra"
+msgstr "Extra"
 
 msgctxt "view:galatea.blog.post:"
 msgid "Info"

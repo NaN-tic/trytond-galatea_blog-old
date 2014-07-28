@@ -57,6 +57,14 @@ msgctxt "field:galatea.blog.post,active:"
 msgid "Active"
 msgstr "Actiu"
 
+msgctxt "field:galatea.blog.post,attachments:"
+msgid "Attachments"
+msgstr "Adjunts"
+
+msgctxt "field:galatea.blog.post,comment:"
+msgid "Comment"
+msgstr "Comentari"
+
 msgctxt "field:galatea.blog.post,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
@@ -73,9 +81,17 @@ msgctxt "field:galatea.blog.post,galatea_website:"
 msgid "Website"
 msgstr "Lloc Web"
 
+msgctxt "field:galatea.blog.post,gallery:"
+msgid "Gallery"
+msgstr "Galeria"
+
 msgctxt "field:galatea.blog.post,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:galatea.blog.post,long_description:"
+msgid "Long Description"
+msgstr "Descripció llarga"
 
 msgctxt "field:galatea.blog.post,metadescription:"
 msgid "Meta Description"
@@ -158,7 +174,24 @@ msgctxt "help:galatea.blog.post,active:"
 msgid "Dissable to not show content post."
 msgstr "Desactivar per no mostrar contingut post."
 
+msgctxt "help:galatea.blog.post,comment:"
+msgid "Active comments."
+msgstr "Activar comentaris"
+
 msgctxt "help:galatea.blog.post,description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
+msgstr ""
+"Pot escriure amb els tags de wiki per formatejar contingut HTML. Pot "
+"consultar la xuleta a MediaWiki "
+"(http://meta.wikimedia.org/wiki/Help:Editing)."
+
+msgctxt "help:galatea.blog.post,gallery:"
+msgid "Active gallery attachments."
+msgstr "Activar galeria."
+
+msgctxt "help:galatea.blog.post,long_description:"
 msgid ""
 "You could write wiki markup to create html content. Formats text following "
 "the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
@@ -239,8 +272,16 @@ msgid "Description"
 msgstr "Descripció"
 
 msgctxt "view:galatea.blog.post:"
+msgid "Attachments"
+msgstr "Adjunts"
+
+msgctxt "view:galatea.blog.post:"
 msgid "Descriptions"
 msgstr "Descripcions"
+
+msgctxt "view:galatea.blog.post:"
+msgid "Extra"
+msgstr "Extra"
 
 msgctxt "view:galatea.blog.post:"
 msgid "Info"
