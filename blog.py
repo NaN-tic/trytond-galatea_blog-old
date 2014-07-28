@@ -23,6 +23,9 @@ class Post(ModelSQL, ModelView):
     description = fields.Text('Description', required=True, translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+    long_description = fields.Text('Long Description', translate=True,
+        help='You could write wiki markup to create html content. Formats text following '
+        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
     metadescription = fields.Char('Meta Description', translate=True, 
         help='Almost all search engines recommend it to be shorter ' \
         'than 155 characters of plain text')
@@ -38,6 +41,9 @@ class Post(ModelSQL, ModelView):
     post_write_date = fields.DateTime('Write Date', readonly=True)
     create_uid = fields.Many2One('res.user', 'User Create', readonly=True)
     write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
+    gallery = fields.Boolean('Gallery', help='Active gallery attachments.')
+    comment = fields.Boolean('Comment', help='Active comments.')
+    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
     _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
 
     @staticmethod
@@ -54,6 +60,14 @@ class Post(ModelSQL, ModelView):
         websites = Website.search([('active', '=', True)])
         if len(websites) == 1:
             return websites[0].id
+
+    @staticmethod
+    def default_gallery():
+        return True
+
+    @staticmethod
+    def default_comment():
+        return True
 
     @classmethod
     def __setup__(cls):

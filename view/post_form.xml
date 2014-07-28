@@ -6,17 +6,15 @@ this repository contains the full copyright notices and license terms. -->
     <field name="name"/>
     <label name="slug"/>
     <field name="slug"/>
-    <label name="galatea_website"/>
-    <field name="galatea_website"/>
-    <label name="template"/>
-    <field name="template"/>
     <label name="active"/>
     <field name="active"/>
     <label name="uri"/>
     <field name="uri" widget="url"/>
     <notebook colspan="4">
         <page string="Descriptions" id="descriptions">
-            <field name="description"/>
+            <field name="description" colspan="4"/>
+            <separator name="long_description" colspan="4"/>
+            <field name="long_description" colspan="4"/>
         </page>
         <page string="SEO" id="seo">
             <label name="metadescription"/>
@@ -35,6 +33,19 @@ this repository contains the full copyright notices and license terms. -->
             <field name="create_uid"/>
             <label name="write_uid"/>
             <field name="write_uid"/>
+        </page>
+        <page string="Extra" id="extra">
+            <label name="galatea_website"/>
+            <field name="galatea_website"/>
+            <label name="template"/>
+            <field name="template"/>
+            <label name="gallery"/>
+            <field name="gallery"/>
+            <label name="comment"/>
+            <field name="comment"/>
+        </page>
+        <page string="Attachments" id="attachments">
+            <field name="attachments" colspan="6"/>
         </page>
     </notebook>
 </form>
