@@ -35,12 +35,21 @@ web deberá tener en cuenta:
 * SEO MetaTitle. Si el título del artículo en los buscadores desea que sea diferente del nombre
   del artículo puede usar este campo para cambiarlo. Recuerde que es un campo multi idioma.
 
-Para el contenido de un blog puede usar los tags de Wiki para dar formato a su contendido.
+Para el contenido de un blog puede usar los campos descripciones. Usa campo el campo "Descripción larga"
+para posts con contenido extenso. Para el formato HTML usa los tags de Wiki para dar formato a su contendido.
 Los tags de wiki le permite formatear el texto para después sea mostrado con HTML. Para
 información de los tags de wiki puede consultar `MediaWiki <http://meta.wikimedia.org/wiki/Help:Editing>`_
 
-Como siempre recuerde que si edita un post o artículo y su web es multi idioma, de cambiar
+Como siempre recuerde que si edita un post o artículo y su web es multi idioma, debe de cambiar
 el contenido por cada idioma con el campo de la "bandera".
+
+En el post podemos añadir adjuntos. Para acceder a los adjuntos puede realizar un vínculo al fichero
+publicado:
+
+    /file/nombre-del-fichero.jpg
+
+Si desea publicar una imagen en el cuerpo del post, consulte la documentación de `MediaWiki.
+Rendering a single image <http://www.mediawiki.org/wiki/Help:Images#Rendering_a_single_image>`_ 
 
 .. important:: Si cambia el nombre del post o artículo, el slug se volverá a generar.
               Debe tener cuidado con esta acción pues si su página ya está indexada
@@ -65,6 +74,8 @@ Comentarios
 -----------
 
 Si a la configuración global está activo los usuarios podrán añadir comentarios en sus posts.
-Si desea que un comentario desactivar, puede desactivar la opción de activo.
+Si en un post no desea que se publiquen comentarios, desactive la opción de "Comentarios".
+
+Si desea que un comentario desactivar y no se publique, puede desactivar la opción de activo.
 
 .. |menu_galatea_blog| tryref:: galatea_blog.menu_galatea_blog/complete_name
