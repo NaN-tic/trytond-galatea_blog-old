@@ -164,6 +164,12 @@ class Comment(ModelSQL, ModelView):
     comment_create_date = fields.Function(fields.Char('Create Date'),
         'get_comment_create_date')
 
+    @classmethod
+    def __setup__(cls):
+        super(Comment, cls).__setup__()
+        cls._order.insert(0, ('create_date', 'DESC'))
+        cls._order.insert(1, ('id', 'DESC'))
+
     @staticmethod
     def default_active():
         return True
