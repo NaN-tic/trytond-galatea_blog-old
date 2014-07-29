@@ -43,6 +43,7 @@ class Post(ModelSQL, ModelView):
     write_uid = fields.Many2One('res.user', 'Write Create', readonly=True)
     gallery = fields.Boolean('Gallery', help='Active gallery attachments.')
     comment = fields.Boolean('Comment', help='Active comments.')
+    comments = fields.One2Many('galatea.blog.comment', 'post', 'Comments')
     attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
     _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
 
