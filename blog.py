@@ -140,6 +140,8 @@ class Post(ModelSQL, ModelView):
                 post, = Post.read([post_id], ['slug'])
                 slugs[lang.code] = post['slug']
 
+        return slugs
+
     def get_uri(self, name):
         if self.galatea_website:
             locale = Transaction().context.get('language', 'en')
