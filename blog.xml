@@ -11,8 +11,12 @@
 
         <menuitem id="menu_galatea_blog" parent="galatea.menu_galatea" name="Blog"/>
         <record model="ir.ui.menu-res.group" id="menu_group_galatea_blog">
-          <field name="menu" ref="menu_galatea_blog"/>
-          <field name="group" ref="group_galatea_blog"/>
+            <field name="menu" ref="menu_galatea_blog"/>
+            <field name="group" ref="group_galatea_blog"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_galatea_blog_group_galatea">
+            <field name="menu" ref="menu_galatea_blog"/>
+            <field name="group" ref="galatea.group_galatea"/>
         </record>
 
         <!-- galatea.blog.post -->
@@ -97,6 +101,15 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+        <record model="ir.model.access" id="access_galatea_galatea_blog_post">
+            <field name="model" search="[('model', '=', 'galatea.blog.post')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
         <record model="ir.model.access" id="access_galatea_blog_comment">
             <field name="model" search="[('model', '=', 'galatea.blog.comment')]"/>
             <field name="group" ref="group_galatea_blog"/>
@@ -104,6 +117,14 @@
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_galatea_galatea_comment_post">
+            <field name="model" search="[('model', '=', 'galatea.blog.comment')]"/>
+            <field name="group" ref="galatea.group_galatea"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
         </record>
     </data>
 </tryton>
