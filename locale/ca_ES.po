@@ -65,6 +65,10 @@ msgctxt "field:galatea.blog.post,comment:"
 msgid "Comment"
 msgstr "Comentari"
 
+msgctxt "field:galatea.blog.post,comments:"
+msgid "Comments"
+msgstr "Comentaris"
+
 msgctxt "field:galatea.blog.post,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
