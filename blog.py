@@ -145,7 +145,7 @@ class Post(ModelSQL, ModelView):
     def get_uri(self, name):
         if self.galatea_website:
             locale = Transaction().context.get('language', 'en')
-            return '%s%s/blog/post/%s' % (
+            return '%s%s/blog/%s' % (
                 self.galatea_website.uri,
                 locale[:2],
                 self.slug,
