@@ -73,7 +73,7 @@ class Post(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Post, cls).__setup__()
-        cls._order.insert(0, ('create_date', 'DESC'))
+        cls._order.insert(0, ('post_create_date', 'DESC'))
         cls._order.insert(1, ('id', 'DESC'))
         cls._error_messages.update({
             'delete_posts': ('You can not delete '
