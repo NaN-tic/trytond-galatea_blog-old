@@ -68,6 +68,33 @@ se listaran por fecha de creación por orden descendiente.
 
 Para acceder a todos los posts o artículos accede a http://www.sudominio.com/es/blog/
 
+También podemos hacer una búsqueda simple por el nombre completo
+(rec_name: por defecto nombre):
+
+* Español: http://www.midominio.com/es/blog/?q=TEXTO
+* Catalan: http://www.midominio.com/ca/blog/?q=TEXTO
+* Inglés: http://www.midominio.com/en/blog/?q=TEXTO
+
+En este ejemplo "TEXTO" equivale la cadena de texto que se usaria para buscar.
+
+.. inheritref:: galatea_blog/galatea:section:buscar
+
+Buscar
+------
+
+En el caso que nuestro sitio web se haya configurado el motor de búsqueda o indexación
+podemos usar la url de buscar en nuestros productos.
+
+* Español: http://www.midominio.com/es/blog/search/
+* Catalan: http://www.midominio.com/ca/blog/search/
+* Inglés: http://www.midominio.com/en/blog/search/
+
+Podemos cancatenar palabras usando "+" para AND y el "-" para el NOT. En el caso
+que sean espacios, se reemplazan como "+" (AND).
+
+Para el uso de Whoosh como la creación de esquemas e indexación consulte la documentación
+del módulo Whoosh.
+
 .. inheritref:: galatea_blog/galatea:section:comentarios
 
 Comentarios
