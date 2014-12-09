@@ -6,7 +6,7 @@ import logging
 try:
     import slug
 except ImportError:
-    logging.getLogger('product esale').error(
+    logging.getLogger('galatea blog').error(
             'Unable to import slug. Install slug package.')
 
 def slugify(value):
