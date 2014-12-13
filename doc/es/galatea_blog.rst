@@ -35,7 +35,7 @@ web deberá tener en cuenta:
 * SEO MetaTitle. Si el título del artículo en los buscadores desea que sea diferente del nombre
   del artículo puede usar este campo para cambiarlo. Recuerde que es un campo multi idioma.
 
-Para el contenido de un blog puede usar los campos descripciones. Usa campo el campo "Descripción larga"
+Para el contenido de un blog puede usar los campos descripciones. Usa el campo "Descripción larga"
 para posts con contenido extenso. Para el formato HTML usa los tags de Wiki para dar formato a su contendido.
 Los tags de wiki le permite formatear el texto para después sea mostrado con HTML. Para
 información de los tags de wiki puede consultar `MediaWiki <http://meta.wikimedia.org/wiki/Help:Editing>`_
@@ -57,6 +57,12 @@ Rendering a single image <http://www.mediawiki.org/wiki/Help:Images#Rendering_a_
               a encontrar y devolverá el "Error 404. Not Found". En el caso que desea cambiar
               las url's contacte con el administrador para que le active las redirecciones
               y evitar páginas no encontradas.
+
+Para acceder a un post en concreto accede a:
+
+* Español: http://www.midominio.com/es/blog/<SLUG>
+* Catalan: http://www.midominio.com/ca/blog/<SLUG>
+* Inglés: http://www.midominio.com/en/blog/<SLUG>
 
 .. inheritref:: galatea_blog/galatea:section:todos_posts
 
