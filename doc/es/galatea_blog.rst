@@ -24,8 +24,8 @@ web deberá tener en cuenta:
   de dos o más slugs en su blog. Recuerde que es un campo multi idioma.
   Cuando introduzca un título se le propone un slug a partir del título que después
   lo podrá cambiar. Un slug podría ser 'mi-articulo-sobre-tryton' y crearia una dirección como
-  http://www.midominio.com/es/blog/post/mi-articulo-sobre-tryton
-* SEO MetaKeyword. Introduce palabras clave de su artículo separados por comas
+  http://www.midominio.com/es/blog/mi-articulo-sobre-tryton
+* SEO MetaKeyword. Introduce las palabras clave de su artículo separados por comas
   (no más de 155 carácteres) que se usará para los buscadores. Un ejemplo de MetaKeyword
   podría ser "tryton,documentación,web,blog". Recuerde que es un campo multi idioma.
 * SEO MetaDescription. Introduce una descripción breve del artículo (el resumen)
