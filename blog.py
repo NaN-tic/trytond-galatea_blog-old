@@ -123,7 +123,7 @@ class Post(ModelSQL, ModelView):
         cls.raise_user_error('delete_posts')
 
     def get_slug_langs(self, name):
-        '''Return dict slugs by all languaes actives'''
+        'Return dict slugs for each active languages'
         pool = Pool()
         Lang = pool.get('ir.lang')
         Post = pool.get('galatea.blog.post')
@@ -186,7 +186,7 @@ class Comment(ModelSQL, ModelView):
 
     @classmethod
     def get_comment_create_date(cls, records, name):
-        """Returns create date of current blog"""
+        'Created domment date'
         res = {}
         DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
         for record in records:

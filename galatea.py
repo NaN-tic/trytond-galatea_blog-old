@@ -13,9 +13,9 @@ class GalateaWebSite:
     __name__ = "galatea.website"
     blog_comment = fields.Boolean('Blog comments',
         help='Active blog comments.')
-    blog_anonymous = fields.Boolean('Blog anonymous',
-        help='Active blog anonymous comments.')
-    blog_anonymous_user = fields.Many2One('galatea.user', 'Anonymous User',
+    blog_anonymous = fields.Boolean('Blog Anonymous',
+        help='Active user anonymous to publish comments.')
+    blog_anonymous_user = fields.Many2One('galatea.user', 'Blog Anonymous User',
         states={
             'required': Eval('blog_anonymous', True),
         })

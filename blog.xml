@@ -25,7 +25,6 @@
             <field name="type">form</field>
             <field name="name">post_form</field>
         </record>
-
         <record model="ir.ui.view" id="blog_post_view_tree">
             <field name="model">galatea.blog.post</field>
             <field name="type">tree</field>
@@ -67,7 +66,6 @@
             <field name="type">form</field>
             <field name="name">comment_form</field>
         </record>
-
         <record model="ir.ui.view" id="blog_comment_view_tree">
             <field name="model">galatea.blog.comment</field>
             <field name="type">tree</field>
