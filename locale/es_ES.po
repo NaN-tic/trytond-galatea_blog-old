@@ -81,9 +81,13 @@ msgctxt "field:galatea.blog.post,description:"
 msgid "Description"
 msgstr "Descripción"
 
+msgctxt "field:galatea.blog.post,galatea_user:"
+msgid "Galatea User"
+msgstr "Galatea Usuario"
+
 msgctxt "field:galatea.blog.post,galatea_website:"
 msgid "Website"
-msgstr "Sitio Web"
+msgstr "Sitio web"
 
 msgctxt "field:galatea.blog.post,gallery:"
 msgid "Gallery"
@@ -150,12 +154,12 @@ msgid "Write User"
 msgstr "Usuario modificación"
 
 msgctxt "field:galatea.website,blog_anonymous:"
-msgid "Blog anonymous"
+msgid "Blog Anonymous"
 msgstr "Blog anónimo"
 
 msgctxt "field:galatea.website,blog_anonymous_user:"
-msgid "Anonymous User"
-msgstr "Usuario anónimo"
+msgid "Blog Anonymous User"
+msgstr "Blog usuario anónimo"
 
 msgctxt "field:galatea.website,blog_comment:"
 msgid "Blog comments"
@@ -221,8 +225,8 @@ msgid "Cannonical uri."
 msgstr "Cannonical uri."
 
 msgctxt "help:galatea.website,blog_anonymous:"
-msgid "Active blog anonymous comments."
-msgstr "Activar comentarios en el blog para usuarios anónimos."
+msgid "Active user anonymous to publish comments."
+msgstr "Activar usuarios anónimos en publicar comentarios."
 
 msgctxt "help:galatea.website,blog_comment:"
 msgid "Active blog comments."
