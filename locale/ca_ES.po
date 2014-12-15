@@ -209,7 +209,7 @@ msgid ""
 "Almost all search engines recommend it to be shorter than 155 characters of "
 "plain text"
 msgstr ""
-"La majoría dels cercadors recomanen un text de 155 caràcters de text pla."
+"La majoria dels cercadors recomanen un text de 155 caràcters de text pla."
 
 msgctxt "help:galatea.blog.post,metakeywords:"
 msgid "Separated by comma"
