@@ -64,7 +64,7 @@ class Post(ModelSQL, ModelView):
     @classmethod
     def default_user(cls):
         Website = Pool().get('galatea.website')
-        websites = Website.search([('active', '=', True)])
+        websites = Website.search([('active', '=', True)], limit=1)
         if not websites:
             return None
         website, = websites
@@ -189,7 +189,7 @@ class Comment(ModelSQL, ModelView):
     @classmethod
     def default_user(cls):
         Website = Pool().get('galatea.website')
-        websites = Website.search([('active', '=', True)])
+        websites = Website.search([('active', '=', True)], limit=1)
         if not websites:
             return None
         website, = websites
