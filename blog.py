@@ -39,7 +39,7 @@ class Post(ModelSQL, ModelView):
         domain=[('active', '=', True)], required=True)
     post_create_date = fields.DateTime('Create Date', readonly=True)
     post_write_date = fields.DateTime('Write Date', readonly=True)
-    galatea_user = fields.Many2One('galatea.user', 'Galatea User', required=True)
+    user = fields.Many2One('galatea.user', 'User', required=True)
     gallery = fields.Boolean('Gallery', help='Active gallery attachments.')
     comment = fields.Boolean('Comment', help='Active comments.')
     comments = fields.One2Many('galatea.blog.comment', 'post', 'Comments')
@@ -60,6 +60,17 @@ class Post(ModelSQL, ModelView):
         websites = Website.search([('active', '=', True)])
         if len(websites) == 1:
             return websites[0].id
+
+    @classmethod
+    def default_user(cls):
+        Website = Pool().get('galatea.website')
+        websites = Website.search([('active', '=', True)])
+        if not websites:
+            return None
+        website, = websites
+        if website.blog_anonymous_user:
+            return website.blog_anonymous_user.id
+        return None
 
     @staticmethod
     def default_gallery():
@@ -179,9 +190,12 @@ class Comment(ModelSQL, ModelView):
     def default_user(cls):
         Website = Pool().get('galatea.website')
         websites = Website.search([('active', '=', True)])
-        if len(websites) == 1:
-            if websites[0].blog_anonymous_user:
-                return websites[0].blog_anonymous_user.id
+        if not websites:
+            return None
+        website, = websites
+        if website.blog_anonymous_user:
+            return website.blog_anonymous_user.id
+        return None
 
     @classmethod
     def get_comment_create_date(cls, records, name):

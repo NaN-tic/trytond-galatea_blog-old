@@ -81,10 +81,6 @@ msgctxt "field:galatea.blog.post,description:"
 msgid "Description"
 msgstr "Descripció"
 
-msgctxt "field:galatea.blog.post,galatea_user:"
-msgid "Galatea User"
-msgstr "Galatea Usuari"
-
 msgctxt "field:galatea.blog.post,galatea_website:"
 msgid "Website"
 msgstr "Lloc web"
@@ -144,6 +140,10 @@ msgstr "Plantilla"
 msgctxt "field:galatea.blog.post,uri:"
 msgid "Uri"
 msgstr "Uri"
+
+msgctxt "field:galatea.blog.post,user:"
+msgid "User"
+msgstr "Usuari"
 
 msgctxt "field:galatea.blog.post,write_date:"
 msgid "Write Date"
