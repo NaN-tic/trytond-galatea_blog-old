@@ -5,6 +5,7 @@ this repository contains the full copyright notices and license terms. -->
     <field name="name"/>
     <field name="post_create_date"/>
     <field name="user"/>
+    <field name="visibility"/>
     <field name="galatea_website"/>
     <field name="comment"/>
     <field name="gallery"/>

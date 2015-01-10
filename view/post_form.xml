@@ -33,6 +33,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="post_write_date"/>
         </page>
         <page string="Extra" id="extra">
+            <label name="visibility"/>
+            <field name="visibility"/>
             <label name="galatea_website"/>
             <field name="galatea_website"/>
             <label name="template"/>

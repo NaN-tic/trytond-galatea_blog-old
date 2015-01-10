@@ -35,6 +35,11 @@ class Post(ModelSQL, ModelView):
     template = fields.Char('Template', required=True)
     active = fields.Boolean('Active',
         help='Dissable to not show content post.')
+    visibility = fields.Selection([
+            ('public','Public'),
+            ('register','Register'),
+            ('manager','Manager'),
+            ], 'Visibility', required=True)
     galatea_website = fields.Many2One('galatea.website', 'Website',
         domain=[('active', '=', True)], required=True)
     post_create_date = fields.DateTime('Create Date', readonly=True)
@@ -53,6 +58,10 @@ class Post(ModelSQL, ModelView):
     @staticmethod
     def default_template():
         return 'blog-post.html'
+
+    @staticmethod
+    def default_visibility():
+        return 'public'
 
     @classmethod
     def default_galatea_website(cls):
