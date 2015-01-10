@@ -145,6 +145,10 @@ msgctxt "field:galatea.blog.post,user:"
 msgid "User"
 msgstr "Usuario"
 
+msgctxt "field:galatea.blog.post,visibility:"
+msgid "Visibility"
+msgstr "Visibilidad"
+
 msgctxt "field:galatea.blog.post,write_date:"
 msgid "Write Date"
 msgstr "Fecha modificación"
@@ -267,6 +271,18 @@ msgstr "Blog"
 msgctxt "model:res.group,name:group_galatea_blog"
 msgid "Galatea Blog"
 msgstr "Galatea Blog"
+
+msgctxt "selection:galatea.blog.post,visibility:"
+msgid "Manager"
+msgstr "Gestor"
+
+msgctxt "selection:galatea.blog.post,visibility:"
+msgid "Public"
+msgstr "Público"
+
+msgctxt "selection:galatea.blog.post,visibility:"
+msgid "Register"
+msgstr "Registrado"
 
 msgctxt "view:galatea.blog.comment:"
 msgid "Comment"
