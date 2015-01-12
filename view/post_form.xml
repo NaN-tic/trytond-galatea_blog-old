@@ -10,8 +10,6 @@ this repository contains the full copyright notices and license terms. -->
     <field name="active"/>
     <label name="uri"/>
     <field name="uri" widget="url"/>
-    <label name="user"/>
-    <field name="user"/>
     <notebook colspan="4">
         <page string="Descriptions" id="descriptions">
             <field name="description" colspan="4"/>
@@ -33,6 +31,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="post_write_date"/>
         </page>
         <page string="Extra" id="extra">
+            <label name="user"/>
+            <field name="user"/>
             <label name="visibility"/>
             <field name="visibility"/>
             <label name="galatea_website"/>
