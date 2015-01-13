@@ -137,6 +137,10 @@ msgctxt "field:galatea.blog.post,template:"
 msgid "Template"
 msgstr "Plantilla"
 
+msgctxt "field:galatea.blog.post,total_comments:"
+msgid "Total Comments"
+msgstr "Total comentaris"
+
 msgctxt "field:galatea.blog.post,uri:"
 msgid "Uri"
 msgstr "Uri"
