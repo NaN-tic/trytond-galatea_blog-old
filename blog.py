@@ -48,6 +48,8 @@ class Post(ModelSQL, ModelView):
     gallery = fields.Boolean('Gallery', help='Active gallery attachments.')
     comment = fields.Boolean('Comment', help='Active comments.')
     comments = fields.One2Many('galatea.blog.comment', 'post', 'Comments')
+    total_comments = fields.Function(fields.Integer("Total Comments"),
+        'get_totalcomments')
     attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
     _slug_langs_cache = Cache('galatea_blog_post.slug_langs')
 
@@ -170,6 +172,9 @@ class Post(ModelSQL, ModelView):
                 self.slug,
                 )
         return ''
+
+    def get_totalcomments(self, name):
+        return len(self.comments)
 
 
 class Comment(ModelSQL, ModelView):
