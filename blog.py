@@ -95,7 +95,7 @@ class Post(ModelSQL, ModelView):
     def __setup__(cls):
         super(Post, cls).__setup__()
         cls._order.insert(0, ('post_create_date', 'DESC'))
-        cls._order.insert(1, ('id', 'DESC'))
+        cls._order.insert(1, ('name', 'ASC'))
         cls._error_messages.update({
             'delete_posts': ('You can not delete '
                 'posts because you will get error 404 NOT Found. '
