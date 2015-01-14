@@ -327,3 +327,7 @@ msgstr "Posts"
 msgctxt "view:galatea.blog.post:"
 msgid "SEO"
 msgstr "SEO"
+
+msgctxt "view:galatea.website:"
+msgid "Blog"
+msgstr "Blog"

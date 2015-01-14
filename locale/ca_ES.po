@@ -192,7 +192,7 @@ msgstr "Desactivar per no mostrar contingut post."
 
 msgctxt "help:galatea.blog.post,comment:"
 msgid "Active comments."
-msgstr "Activar comentaris"
+msgstr "Activar comentaris."
 
 msgctxt "help:galatea.blog.post,description:"
 msgid ""
@@ -326,3 +326,7 @@ msgstr "Posts"
 msgctxt "view:galatea.blog.post:"
 msgid "SEO"
 msgstr "SEO"
+
+msgctxt "view:galatea.website:"
+msgid "Blog"
+msgstr "Blog"
