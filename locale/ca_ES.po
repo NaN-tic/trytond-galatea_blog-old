@@ -3,6 +3,18 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:galatea.blog.post:"
+msgid "\"%(file_name)s\" file mime is not an image (jpg, png or gif)"
+msgstr "El fitxer \"%(file_name)s\" no es una imatge (jpg, png or gif)"
+
+msgctxt "error:galatea.blog.post:"
+msgid "Not know file mime \"%(file_name)s\""
+msgstr "No es coneix el tipus del fitxer \"%(file_name)s\""
+
+msgctxt "error:galatea.blog.post:"
+msgid "Thumb \"%(file_name)s\" size is larger than \"%(size)s\"Kb"
+msgstr "El tamany de la miniatura \"%(file_name)s\" es mes gran que \"%(size)s\"Kb"
+
+msgctxt "error:galatea.blog.post:"
 msgid ""
 "You can not delete posts because you will get error 404 NOT Found. Dissable "
 "active field."
@@ -137,6 +149,18 @@ msgctxt "field:galatea.blog.post,template:"
 msgid "Template"
 msgstr "Plantilla"
 
+msgctxt "field:galatea.blog.post,thumb:"
+msgid "Thumb"
+msgstr "Miniatura"
+
+msgctxt "field:galatea.blog.post,thumb_filename:"
+msgid "File Name"
+msgstr "Nom fitxer"
+
+msgctxt "field:galatea.blog.post,thumb_path:"
+msgid "Thumb Path"
+msgstr "Ruta miniatura"
+
 msgctxt "field:galatea.blog.post,total_comments:"
 msgid "Total Comments"
 msgstr "Total comentaris"
@@ -160,6 +184,14 @@ msgstr "Data modificació"
 msgctxt "field:galatea.blog.post,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
+
+msgctxt "field:galatea.configuration,blog_thumb_crop:"
+msgid "Blog Thumb Crop"
+msgstr "Talla miniatura blog"
+
+msgctxt "field:galatea.configuration,blog_thumb_size:"
+msgid "Blog Thumb Size"
+msgstr "Tamany miniatura blog"
 
 msgctxt "field:galatea.website,blog_anonymous:"
 msgid "Blog Anonymous"
@@ -230,6 +262,18 @@ msgstr "Separat amb coma"
 msgctxt "help:galatea.blog.post,slug:"
 msgid "Cannonical uri."
 msgstr "Cannonical uri."
+
+msgctxt "help:galatea.blog.post,thumb_filename:"
+msgid "Thumbnail File Name"
+msgstr "Nom miniatura"
+
+msgctxt "help:galatea.configuration,blog_thumb_crop:"
+msgid "Crop Thumb Blog Image"
+msgstr "Talla la imatge miniatura blog"
+
+msgctxt "help:galatea.configuration,blog_thumb_size:"
+msgid "Thumbnail Blog Image Size (width x height)"
+msgstr "Tamany imatge miniatura bog (ample x alt)"
 
 msgctxt "help:galatea.website,blog_anonymous:"
 msgid "Active user anonymous to publish comments."
