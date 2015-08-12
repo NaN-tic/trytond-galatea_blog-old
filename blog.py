@@ -289,5 +289,5 @@ class Comment(ModelSQL, ModelView):
 
     @classmethod
     def copy(cls, comments, default=None):
-        default['blog_create_date'] = None
-        return super(Post, cls).copy(comments, default=default)
+        default['comment_create_date'] = None
+        return super(Comment, cls).copy(comments, default=default)
