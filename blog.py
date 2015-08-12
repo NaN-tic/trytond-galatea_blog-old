@@ -142,7 +142,7 @@ class Post(ModelSQL, ModelView):
         new_posts = []
         for post in posts:
             default['slug'] = '%s-copy' % post.slug
-            default['blog_create_date'] = None
+            default['blog_create_date'] = datetime.now()
             default['blog_write_date'] = None
             new_post, = super(Post, cls).copy([post], default=default)
             new_posts.append(new_post)
