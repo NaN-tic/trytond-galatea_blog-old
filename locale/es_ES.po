@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -343,6 +343,10 @@ msgstr "Comentarios"
 msgctxt "view:galatea.blog.comment:"
 msgid "Description"
 msgstr "Descripción"
+
+msgctxt "view:galatea.blog.comment:"
+msgid "Time"
+msgstr "Hora"
 
 msgctxt "view:galatea.blog.post:"
 msgid "Attachments"
