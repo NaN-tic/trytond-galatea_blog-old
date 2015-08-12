@@ -100,6 +100,10 @@ class Post(ModelSQL, ModelView):
     def default_comment():
         return True
 
+    @staticmethod
+    def default_post_create_date():
+        return datetime.now()
+
     @classmethod
     def __setup__(cls):
         super(Post, cls).__setup__()
@@ -120,14 +124,6 @@ class Post(ModelSQL, ModelView):
         if self.name and not self.slug:
             res['slug'] = slugify(self.name)
         return res
-
-    @classmethod
-    def create(cls, vlist):
-        now = datetime.now()
-        vlist = [x.copy() for x in vlist]
-        for vals in vlist:
-            vals['post_create_date'] = now
-        return super(Post, cls).create(vlist)
 
     @classmethod
     def write(cls, *args):
@@ -264,8 +260,7 @@ class Comment(ModelSQL, ModelView):
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
     active = fields.Boolean('Active',
         help='Dissable to not show content post.')
-    comment_create_date = fields.Function(fields.Char('Create Date'),
-        'get_comment_create_date')
+    comment_create_date = fields.DateTime('Create Date', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -288,11 +283,11 @@ class Comment(ModelSQL, ModelView):
             return website.blog_anonymous_user.id
         return None
 
+    @staticmethod
+    def default_comment_create_date():
+        return datetime.now()
+
     @classmethod
-    def get_comment_create_date(cls, records, name):
-        'Created domment date'
-        res = {}
-        DATE_FORMAT = '%s %s' % (Transaction().context['locale']['date'], '%H:%M:%S')
-        for record in records:
-            res[record.id] = record.create_date.strftime(DATE_FORMAT) or ''
-        return res
+    def copy(cls, comments, default=None):
+        default['blog_create_date'] = None
+        return super(Post, cls).copy(comments, default=default)
