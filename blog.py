@@ -19,7 +19,7 @@ class Post(ModelSQL, ModelView):
     "Blog Post"
     __name__ = 'galatea.blog.post'
     name = fields.Char('Title', translate=True,
-        required=True, on_change=['name', 'slug'])
+        required=True)
     slug = fields.Char('slug', required=True, translate=True,
         help='Cannonical uri.')
     slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_slug_langs')
