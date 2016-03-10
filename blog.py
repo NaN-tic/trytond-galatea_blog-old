@@ -185,7 +185,7 @@ class Post(ModelSQL, ModelView):
         return len(self.comments)
 
     def get_thumb(self, name):
-        db_name = Transaction().cursor.dbname
+        db_name = Transaction().database.name
         filename = self.thumb_filename
         if not filename:
             return None
@@ -215,7 +215,7 @@ class Post(ModelSQL, ModelView):
         galatea_config = Config(1)
         size = galatea_config.blog_thumb_size or 300
         crop = galatea_config.blog_thumb_crop
-        db_name = Transaction().cursor.dbname
+        db_name = Transaction().database.name
         galatea_dir = os.path.join(
             config.get('database', 'path'), db_name, 'galatea', 'blog')
 
