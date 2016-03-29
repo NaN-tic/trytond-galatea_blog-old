@@ -5,10 +5,10 @@ from trytond.model import fields
 from trytond.pool import PoolMeta
 
 __all__ = ['Configuration']
-__metaclass__ = PoolMeta
 
 
 class Configuration:
+    __metaclass__ = PoolMeta
     __name__ = 'galatea.configuration'
     blog_thumb_size = fields.Integer('Blog Thumb Size',
         help='Thumbnail Blog Image Size (width x height)')
