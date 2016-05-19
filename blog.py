@@ -138,11 +138,14 @@ class Post(ModelSQL, ModelView):
 
     @classmethod
     def copy(cls, posts, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
         new_posts = []
         for post in posts:
             default['slug'] = '%s-copy' % post.slug
-            default['blog_create_date'] = datetime.now()
-            default['blog_write_date'] = None
+            default['post_create_date'] = datetime.now()
+            default['post_write_date'] = None
             new_post, = super(Post, cls).copy([post], default=default)
             new_posts.append(new_post)
         return new_posts
@@ -288,5 +291,8 @@ class Comment(ModelSQL, ModelView):
 
     @classmethod
     def copy(cls, comments, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
         default['comment_create_date'] = None
         return super(Comment, cls).copy(comments, default=default)
