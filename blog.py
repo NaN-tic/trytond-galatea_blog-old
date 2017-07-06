@@ -30,7 +30,7 @@ class Post(ModelSQL, ModelView):
     long_description = fields.Text('Long Description', translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
-    metadescription = fields.Char('Meta Description', translate=True, 
+    metadescription = fields.Char('Meta Description', translate=True,
         help='Almost all search engines recommend it to be shorter ' \
         'than 155 characters of plain text')
     metakeywords = fields.Char('Meta Keywords',  translate=True,
@@ -48,6 +48,7 @@ class Post(ModelSQL, ModelView):
         domain=[('active', '=', True)], required=True)
     post_create_date = fields.DateTime('Create Date', readonly=True)
     post_write_date = fields.DateTime('Write Date', readonly=True)
+    post_published_date = fields.DateTime('Published Date', required=True)
     user = fields.Many2One('galatea.user', 'User', required=True)
     gallery = fields.Boolean('Gallery', help='Active gallery attachments.')
     comment = fields.Boolean('Comment', help='Active comments.')
@@ -104,10 +105,14 @@ class Post(ModelSQL, ModelView):
     def default_post_create_date():
         return datetime.now()
 
+    @staticmethod
+    def default_post_published_date():
+        return datetime.now()
+
     @classmethod
     def __setup__(cls):
         super(Post, cls).__setup__()
-        cls._order.insert(0, ('post_create_date', 'DESC'))
+        cls._order.insert(0, ('post_published_date', 'DESC'))
         cls._order.insert(1, ('name', 'ASC'))
         cls._error_messages.update({
             'delete_posts': ('You can not delete '

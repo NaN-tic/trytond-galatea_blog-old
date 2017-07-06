@@ -26,9 +26,14 @@ this repository contains the full copyright notices and license terms. -->
         </page>
         <page string="Info" id="info">
             <label name="post_create_date"/>
-            <field name="post_create_date"/>
+            <field name="post_create_date" widget="date"/>
+            <field name="post_create_date" widget="time"/>
             <label name="post_write_date"/>
-            <field name="post_write_date"/>
+            <field name="post_write_date" widget="date"/>
+            <field name="post_write_date" widget="time"/>
+            <label name="post_published_date"/>
+            <field name="post_published_date" widget="date"/>
+            <field name="post_published_date" widget="time"/>
         </page>
         <page string="Extra" id="extra">
             <label name="user"/>
