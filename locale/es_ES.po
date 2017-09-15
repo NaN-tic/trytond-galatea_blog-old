@@ -131,10 +131,6 @@ msgstr "Fecha creación"
 
 msgctxt "field:galatea.blog.post,post_published_date:"
 msgid "Published Date"
-msgstr "Data publicació"
-
-msgctxt "field:galatea.blog.post,post_published_date:"
-msgid "Published Date"
 msgstr "Fecha publicación"
 
 msgctxt "field:galatea.blog.post,post_write_date:"
