@@ -55,7 +55,10 @@ class Post(ModelSQL, ModelView):
     comments = fields.One2Many('galatea.blog.comment', 'post', 'Comments')
     total_comments = fields.Function(fields.Integer("Total Comments"),
         'get_totalcomments')
-    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments')
+    attachments = fields.One2Many('ir.attachment', 'resource', 'Attachments',
+        filter=[
+            ('allow_galatea', '=', True),
+        ])
     thumb = fields.Function(fields.Binary('Thumb', filename='thumb_filename'),
         'get_thumb', setter='set_thumb')
     thumb_filename = fields.Char('File Name',
