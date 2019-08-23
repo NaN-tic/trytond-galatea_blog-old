@@ -129,6 +129,20 @@ class Post(ModelSQL, ModelView):
         if self.name and not self.slug:
             self.slug = slugify(self.name)
 
+    @fields.depends('slug')
+    def on_change_slug(self):
+        if self.slug:
+            self.slug = slugify(self.slug)
+
+    @classmethod
+    def create(cls, vlist):
+        for values in vlist:
+            values = values.copy()
+            if values.get('slug'):
+                slug = slugify(values.get('esale_slug'))
+                values['slug'] = slug
+        return super(Post, cls).create(vlist)
+
     @classmethod
     def write(cls, *args):
         now = datetime.now()
@@ -138,6 +152,9 @@ class Post(ModelSQL, ModelView):
         for blogs, values in zip(actions, actions):
             values = values.copy()
             values['post_write_date'] = now
+            if values.get('slug'):
+                slug = slugify(values.get('slug'))
+                values['slug'] = slug
             args.extend((blogs, values))
         return super(Post, cls).write(*args)
 
